@@ -1,12 +1,18 @@
-const express = require('express'); 
-const app = express(); 
+const express = require("express");
+const app = express();
 
-app.use(express.json()); 
+app.use(express.json());
 
-app.get("/", (req, res) => { 
-    res.json({ 
-        CortexServer: 'running'
-    }); 
-}); 
+//import routes
+const airoute = require("./routes/AIroute.js");
 
-module.exports = app; 
+//instantiate the route
+app.use("/api/", airoute);
+
+app.get("/", (req, res) => {
+  res.json({
+    CortexServer: "running",
+  });
+});
+
+module.exports = app;
