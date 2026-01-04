@@ -19,7 +19,8 @@ const { userRes } = req.body;
     res.send({ response: response.choices[0].message.content });
 
     } catch (error) { 
-        console.error('Error with sending response to AI'); 
+        console.error('Error with sending response to AI');  
+        console.log(error); 
         res.status(501).json({ 
             Error: error
         }); 
