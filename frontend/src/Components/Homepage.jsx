@@ -1,12 +1,11 @@
-export default function Homepage() { 
-    return( 
-        <>  
-        <div> 
-            <h1> 
-                Cortex 
-            </h1>
-        </div>
-        </>
-    );
-}; 
+import "../Styles/Homepage.css"; 
 
+export default function Homepage() {
+  return (
+    <>
+      <div className="heading-div">
+        <h1 className="title">Cortex</h1>
+      </div>
+    </>
+  );
+}

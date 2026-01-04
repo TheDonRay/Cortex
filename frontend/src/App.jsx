@@ -1,12 +1,12 @@
-import './App.css'; 
-import Homepage from "./Components/Homepage.jsx"; 
+import "./App.css";
+import Homepage from "./Components/Homepage.jsx";
 
 function App() {
   return (
-    <> 
-      <Homepage/> 
+    <>
+      <Homepage />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
