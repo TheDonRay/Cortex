@@ -16,8 +16,8 @@ const { userRes } = req.body;
         model: 'gpt-5-nano', 
         messages: [{ role: 'user', content: userRes}]
     });  
-    res.send({ response: response.choices[0].message.content });
-
+    res.send({ response: response.choices[0].message.content }); 
+    
     } catch (error) { 
         console.error('Error with sending response to AI');  
         console.log(error); 
