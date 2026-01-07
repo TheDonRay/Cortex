@@ -1,4 +1,4 @@
-import "../Styles/Homepage.css"; 
+import "../Styles/Homepage.css";
 
 export default function Homepage() {
   return (

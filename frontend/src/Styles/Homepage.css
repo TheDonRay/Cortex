@@ -1,15 +1,15 @@
-body { 
-    font-family: "Russo One", sans-serif;
+body {
+  font-family: "Cal Sans", sans-serif;
 }
 
-.heading-div { 
-    display: flex;  
-    justify-content: center;   
-    align-items: center; 
-    margin-top: 10rem; 
+.heading-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
 }
 
-.title { 
-    font-family: "Russo One", sans-serif;
-    font-size: 45px; 
+.title {
+  font-family: "Cal Sans", sans-serif;
+  font-size: 45px;
 }
