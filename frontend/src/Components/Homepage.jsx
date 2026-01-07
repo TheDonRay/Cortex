@@ -1,11 +1,21 @@
-import "../Styles/Homepage.css";
+import "../Styles/Homepage.css"; 
+import { useNavigate } from 'react-router-dom';
 
-export default function Homepage() {
+export default function Homepage() { 
+  const navigate = useNavigate(); 
+   const redirectButton() { 
+    navigate('/loginpage'); 
+   }
   return (
     <>
       <div className="heading-div">
-        <h1 className="title">Cortex</h1>
-      </div>
+        <h1 className="title">Cortex</h1> 
+      </div>  
+
+      <button className='btn-design'> 
+        
+      </button>
+      
     </>
   );
 }
