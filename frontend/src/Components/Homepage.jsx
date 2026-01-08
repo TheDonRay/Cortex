@@ -2,8 +2,9 @@ import "../Styles/Homepage.css";
 import { useState } from 'react'; 
 
 export default function Homepage() { 
-  
-  const [Text, newText] = useState('');  
+  const [isloading, setisLoading] = useState(false); 
+  const [Text, newText] = useState('');   
+   const [response, setResponse] = useState('');  // Add this to store the response
 
   const handleChange = (event) => { 
     newText(event.target.value); 
@@ -15,8 +16,11 @@ export default function Homepage() {
 
     // start of with error handling here as such  
     if (!Text){ 
-      console.log('Error: No message or text appeared in textbox'); 
+      console.log('Error: No message or text appeared in textbox');  
+      return;
     } 
+
+    setisLoading(true); // start loading 
 
     try {   
       const sendData = await fetch(`http://localhost:5678/api/AI`, { 
@@ -27,15 +31,20 @@ export default function Homepage() {
         body: JSON.stringify({ 
           userMessage: Text,
         })
-      });  
-      // now get the backend response here as such 
-      const backendResponse = await sendData.json(); 
+      });   
+
+      
+      const backendResponse = await sendData.json();  // now get the backend response here as such 
+      setResponse(backendResponse.response); 
       console.log(`Backend got the message`);  
 
       newText(""); // updates the state. 
 
     } catch (error) { 
       console.log('Error sending user data to the backend', error); 
+      setResponse('Error: Could not get response');  
+    } finally { // remember to stop the loading  here. 
+      setisLoading(false); // stop the loading 
     }
   }
 
@@ -57,13 +66,22 @@ export default function Homepage() {
                 onChange={handleChange} 
               />
             </label> 
-            <button className="btn-design"> 
-              Send
+            <button className="btn-design" disabled={isloading}> 
+              {isloading ? 'Sending...' : 'Send'}
             </button>
           </form>
         </div> 
-      </div>     
+      </div>  
 
+      <div className="backend-response-container">  
+       {isloading ? ( 
+        <p>Loading...</p>
+       ) : response ? ( 
+        <p>{response}</p>
+       ) : ( 
+        <p>How can Cortex be of service</p>
+       )}
+      </div> 
     </>
   );
 }
