@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Homepage() { 
   const navigate = useNavigate(); 
-   const redirectButton() { 
-    navigate('/loginpage'); 
-   }
+   
+  function redirectFunction() { 
+    navigate()
+  }
   return (
     <>
       <div className="heading-div">
@@ -13,7 +14,7 @@ export default function Homepage() {
       </div>  
 
       <button className='btn-design'> 
-        
+
       </button>
       
     </>
