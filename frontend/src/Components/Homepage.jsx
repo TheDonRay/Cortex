@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function Homepage() { 
   
-  const [userText, newText] = useState('');  
+  const [Text, newText] = useState('');  
 
   const handleChange = (event) => { 
     newText(event.target.value); 
@@ -13,7 +13,30 @@ export default function Homepage() {
   const buttonFunction = async (event) => { 
     event.preventDefault(); 
 
-    const userInput = 
+    // start of with error handling here as such  
+    if (!Text){ 
+      console.log('Error: No message or text appeared in textbox'); 
+    } 
+
+    try {   
+      const sendData = await fetch(`http://localhost:5678/api/AI`, { 
+        method: 'POST', 
+        headers: { 
+          'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify({ 
+          userMessage: Text,
+        })
+      });  
+      // now get the backend response here as such 
+      const backendResponse = await sendData.json(); 
+      console.log(`Backend got the message`);  
+
+      newText(""); // updates the state. 
+
+    } catch (error) { 
+      console.log('Error sending user data to the backend', error); 
+    }
   }
 
   return (
@@ -24,13 +47,22 @@ export default function Homepage() {
 
       <div className="containerdiv"> 
         <div className="textbox-div"> 
-          {/*Enter text box div here as such */} 
+          {/*Enter text box div here as such */}  
+          <form onSubmit={buttonFunction}> 
+            <label> 
+              Ask Cortex Anything 
+              <input 
+                type="text" 
+                value={Text} 
+                onChange={handleChange} 
+              />
+            </label> 
+            <button className="btn-design"> 
+              Send
+            </button>
+          </form>
         </div> 
-      </div>       
-
-      <button className="btn-design">
-        Send
-      </button>
+      </div>     
 
     </>
   );
