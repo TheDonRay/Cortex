@@ -7,6 +7,7 @@ This project is intentionally simple and focused on learning core concepts rathe
 ---
 
 ## 🚀 Features
+
 - Express server setup
 - OpenAI API integration
 - Simple API endpoints for AI-powered responses
@@ -16,6 +17,7 @@ This project is intentionally simple and focused on learning core concepts rathe
 ---
 
 ## 🛠 Tech Stack
+
 - Node.js
 - Express.js
 - OpenAI API
