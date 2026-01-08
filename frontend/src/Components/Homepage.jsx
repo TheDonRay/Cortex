@@ -2,11 +2,11 @@ import "../Styles/Homepage.css";
 import { useState } from 'react'; 
 
 export default function Homepage() { 
-  const [isloading, setisLoading] = useState(false); 
-  const [Text, newText] = useState('');   
+  const [isloading, setisLoading] = useState(false); // for the loading aspect.
+  const [Text, newText] = useState(''); // handle user input. 
    const [response, setResponse] = useState('');  // Add this to store the response
 
-  const handleChange = (event) => { 
+  const handleChange = (event) => { // function handles user input on an element that is actively being typed into
     newText(event.target.value); 
   }
 
@@ -15,7 +15,8 @@ export default function Homepage() {
     event.preventDefault(); 
 
     // start of with error handling here as such  
-    if (!Text){ 
+    if (!Text || Text.trim() === ""){
+      alert('Text field empty please ask Cortex something');  
       console.log('Error: No message or text appeared in textbox');  
       return;
     } 
