@@ -90,9 +90,10 @@ label {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #aaaaaa;
-  margin-bottom: 0.5rem;
-  display: block;
-}
+  margin-bottom: 1rem;
+  display: block; 
+}  
+
 
 input[type="text"] {
   width: 100%;

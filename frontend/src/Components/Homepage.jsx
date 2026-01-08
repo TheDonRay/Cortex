@@ -59,14 +59,13 @@ export default function Homepage() {
         <div className="textbox-div"> 
           {/*Enter text box div here as such */}  
           <form onSubmit={buttonFunction}> 
-            <label> 
-              Ask Cortex Anything 
+            Curiosity compiles. Questions ship
               <input 
                 type="text" 
                 value={Text} 
-                onChange={handleChange} 
+                placeholder='Ask Cortex Anything'
+                onChange={handleChange}  
               />
-            </label> 
             <button className="btn-design" disabled={isloading}> 
               {isloading ? 'Sending...' : 'Send'}
             </button>
