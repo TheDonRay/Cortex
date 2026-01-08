@@ -23,3 +23,6 @@ This project is intentionally simple and focused on learning core concepts rathe
 - OpenAI API
 - JavaScript
 - dotenv
+
+## 🚀 Heads Up! 
+- the backend for Cortex is not hosted it can only run by running the backend on my personal machine 
